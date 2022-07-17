@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* body{    
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.img-wrapper{
+    background-image:url(/home/afsul/Documents/carpool_second_project/Frontend/carpool/public/website_images/banner.jpg);
+    background-position: right;
+    background-repeat: no-repeat;
+   width: 100%;
+   height: auto;
+}
+.ride_list_card{
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);
+border-radius: 37px;
+width: 100%;
+padding: 5px;
+margin-bottom: 20px;
+
+}
+.ride_list_card h3 {
+    font-size: 20px;
+    color:#2E2E2E ;
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 600;   
+ 
+
+}
+.ride_list_card h2 {
+    font-size: 23px;
+    color:#2E2E2E ;
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 600;   
+ 
+
+}
+.ride_list_card img{
+    width: 100%;
+    height: auto;
+}
+
+
+.form_bg {
+    margin-top: 100px;
+    background-color: #E6E6E6;
+    width: 100%;
+    height: auto;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 100px;
+    padding-bottom: 40px;
+    border-radius: 15px;
+    
+
+}
+
+.single-ride{
+    margin-top: 100px;
+    font-family: 'Poppins', sans-serif; 
+    /* box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);
+border-radius: 37px; */
+width: 100%;
+padding: 5px;
+}
+.single-detail{
+    font-family: 'Poppins', sans-serif; 
+    color:#2E2E2E;
+    text-align: center;
+    /* border-left:#939292 double 7px; */
+    /* border-right:#939292 double 7px; */
+    padding-right: 100px;
+    padding-left: 100px;
+
+}
+
+
+
+
+.single-ride h1{
+    font-weight: 600;  
+    font-size: 45px;
+    text-decoration: underline;
+    color:#150638 ;
+    text-align: center;
+    margin-bottom: 0 !important;
+}
+
+.single-ride p{
+    text-align: center;
+    font-weight: 600;  
+    font-size:20px;
+    color: #f80015;
+}
+
+.timeline{
+    text-align: left;
+}
+
+.css-ha3bif-MuiTimelineItem-root:before {
+    content: "" !important;
+    -webkit-flex: 0 !important;
+    -ms-flex: 0 !important;
+    /* flex: 1; */
+    /* padding: 6px 16px; */
+}
+
+
+.css-i4bv87-MuiSvgIcon-root {
+    color:#f80015 ;
+}
+.css-ptiqhd-MuiSvgIcon-root {
+    color:#f80015 ;
+}
+
+.form_bg h1{
+font-size: 28px;
+color:#150638 ;
+font-family: 'Poppins', sans-serif; 
+margin-top: 0;
+
+}
+.form_bg h3{
+    font-size: 20px;
+    color:#150638 ;
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 600;
+    
+    }
+
+.btn-schedule-form{
+    margin: auto;
+    background-color: #f80015;
+    color: #fff;
+}
+
+.three-content {
+    font-family: 'Poppins', sans-serif; 
+    background-color: #F5F5F5;
+    color: #28135D;
+    
+}
+.three-content img{
+    height: 43px;
+    width: 43px;
+ 
+}
+.three-content h5{
+    color: #28135D;
+    font-weight:600;
+    font-size: 21px;
+    
+}
+
+.three-content p{
+    color: #28135D;
+    font-weight:500;
+    font-size: 15px;
+}
+
+
+/* your-safety */
+
+.your-safety {
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 50px;
+}
+.your-safety img{
+    width: 100%;
+    height: auto;
+}
+
+.your-safety h4{
+    color: #28135D;
+    font-weight:600;
+    font-size: 40px;
+    padding: 0;
+    margin-bottom: 0;
+    
+}
+
+.your-safety  p{
+    color: #28135D;
+    font-weight:500;
+    font-size: 15px;
+}
+
+
+/* faq */
+.faq{
+    color: #28135D;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-weight:600;
+}
+
+/* footer */
+.footer{
+    background-color: #211D31;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    padding-top: 70px;
+    
+
+}
+
+.footer h4{
+    font-weight: 600;
+
+}
+
+
+.footer p{
+    font-size: 14px;
+}
+
+.footer h6{
+    font-size: 13px;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 0;
+    padding-bottom: 15px;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 100px;
+    background: orange;
+    color: white;
+    cursor: pointer;
+    border-radius: 100px;
+    border: none;
+    box-shadow: 0 5px 10px #ccc;
+  }
+  
+  .back-to-top:hover {
+    background: red;
+  }
+
+
+.login {
+    padding-top: 100px;
+}
+
+.login h3{
+    font-size: 35px;
+    text-align: center;
+    font-weight: 600;
+    color: #28135D;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-text-field{
+    border-radius: 27px;
+    border: none;
+}
+
+.signup{
+    color: #28135D;
+    font-family: 'Poppins', sans-serif;padding-top: 100px;
+    
+}
+.signup h3{
+    font-size: 35px;
+    text-align: center;
+}
+.signup span{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    
+}
+.verify_btn{
+    margin: auto;
+}
+
+.add-vehicle h3{
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    color: #28135D;
+
+}
+
+
+.user_profile{
+    /* margin-top: 100px; */
+    color: #28135D;
+    font-family: 'Poppins', sans-serif;padding-top: 100px;
+}
+
+.user_profile h1{
+    font-size: 40px;
+    text-align: center;
+    
+}
+
+.user_profile h3{
+    /* font-size: 40px; */
+    font-weight: 600;
+    padding: 0;
+}
+
+
+
+.about-form-field {
+   border: none;
+}
+
+.ride-reqeust{
+    font-family: 'Poppins', sans-serif;
+
+}
+.ride-reqeust h3{
+font-size: 35px;
+/* text-align: center; */
+color: #28135D;
+
+}
+
+.request-ride-single{
+    /* margin-left: 50px; */
+}
