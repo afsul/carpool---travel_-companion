@@ -3,7 +3,7 @@ from pyexpat import model
 from rest_framework import serializers
 
 from accounts.models import User
-from .models import  Ride, Ride_Request
+from .models import  Ride, Ride_Request, Vehicle
 
 
 
@@ -31,3 +31,9 @@ class RideRequestSerializers(serializers.ModelSerializer):
         model= Ride_Request
         fields = '__all__'
         depth = 2
+
+
+class VehicleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vehicle
+        fields = '__all__'

@@ -13,6 +13,8 @@ import RideSingle from './Pages/RideSingle';
 import AddVehicle from './Pages/AddVehicle';
 import Your_rides from './Pages/Your_rides';
 import { AuthProvider } from './context/UserContext';
+import AdminLogin from './Pages/AdminLogin';
+import EditUserProfile from './Pages/EditUserProfile';
 
 
 function App() {
@@ -28,12 +30,16 @@ function App() {
         <Route path='/user/signup' element={<Signup/>}/>
         <Route path='/user/payment' element={<Payment/>}/>
         <Route path='/user/profile' element={<UserProfile/>}/>
+        <Route path='/user/edit-profile' element={<EditUserProfile/>}/>
         <Route path='/user/otp' element={<OtpVerify/>}/>
         <Route path='/user/ride_schedule' element={<Ride_schedule/>}/>
         <Route path='/user/ride_list' element={<Ride_list/>}/>
         <Route path='/user/single_ride' element={<RideSingle/>}/>
         <Route path='/user/add_vehicle' element={<AddVehicle/>}/>
-        <Route path='/user/Your_rides' element={<Your_rides/>}/>        
+        <Route path='/user/Your_rides' element={<Your_rides/>}/>     
+        <Route path='/admin/AdminLogin' element={<AdminLogin/>}/>     
+
+           
       </Routes>
       </AuthProvider>
      </Router>

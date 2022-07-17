@@ -8,6 +8,8 @@ urlpatterns = [
        path("send_request/<int:userID>",views.send_ride_request,name="send_request"),
        path("accept_request/<int:requestID>",views.accept_ride_request,name="accept_request"),
        path("reject_ride_request/<int:requestID>",views.reject_ride_request,name="reject_ride_request"),
-       path("list_all_rides",views.list_all_rides,name="list_all_rides")
+       path("list_all_rides",views.list_all_rides,name="list_all_rides"),
+       path("list_all_vehicles",views.Vehicle.as_view()),
+       path("vehicle_details/<int:pk>",views.VehicleDetails.as_view()),
 
 ]   

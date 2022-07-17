@@ -1,4 +1,4 @@
-import re
+
 from urllib import response
 from webbrowser import get
 from django.http import HttpResponse
@@ -6,17 +6,18 @@ from requests import request
 
 from accounts.models import User
 from .models import Copassengers, Ride, Ride_Request
-from .serializers import GetRiderInfo, RideSerializer,RideRequestSerializers
+from .serializers import GetRiderInfo, RideSerializer,RideRequestSerializers, VehicleSerializer
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
 from ride import models
+
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
 from django.db.models import Q
-
+from .models import Vehicle
 # Create your views here.
 
 # create ride
@@ -161,4 +162,19 @@ def reject_ride_request(request, requestID):
         return Response(status=status.HTTP_200_OK)
     else:
         return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class VehicleDetails(generics.RetrieveUpdateAPIView):
+    queryset = Vehicle.objects.all()
+    serializer_class = VehicleSerializer
+    permission_classes = [IsAuthenticated]
+
+
+class Vehicle(generics.ListCreateAPIView):
+    queryset = Vehicle.objects.all()
+    serializer_class = VehicleSerializer
+    permission_classes = [IsAuthenticated]
+
+
+
 

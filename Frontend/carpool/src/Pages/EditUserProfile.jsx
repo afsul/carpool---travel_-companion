@@ -13,7 +13,11 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { AuthContext } from "../context/UserContext";
 import { useState } from "react";
-function UserProfile() {
+
+
+function EditUserProfile() {
+
+  const {authTokens} = useContext(AuthContext)
 
   const {decoded} = useContext(AuthContext)
 
@@ -28,7 +32,7 @@ function UserProfile() {
   
 
   useEffect(()=>{
-    document.title = 'User Profile'
+    document.title = 'Edit User Profile'
      console.log('this is decoded',decoded.user_id)
     axios.get('http://127.0.0.1:8000/auth/user_details/'+user_id)
     .then((response)=>{
@@ -47,6 +51,45 @@ function UserProfile() {
         alert("otp send")
     })
   }
+
+  const handleChange = (event)=>{
+    setUserData({
+        ...userData,
+        [event.target.name] : [event.target.value]
+    });
+   }
+
+
+   const _formData = null
+    const formSubmit = () => {                     //************** the key point to note here is if we don't give the name is append as exactly the same name as per seializer of backend then the response will be having a null values so be careful
+        const _formData = new FormData();
+        _formData.append('first_name', userData.first_name);
+        _formData.append('last_name', userData.last_name);
+        _formData.append('username', userData.username);
+        _formData.append('email', userData.email);
+        _formData.append('phone', userData.phone);
+        _formData.append('date_of_birth', userData.date_of_birth);
+       
+
+        console.log('submit button on', formSubmit)
+
+        try {
+            axios.patch('http://127.0.0.1:8000/auth/user_details/'+user_id+'/', _formData, {
+              headers: { Authorization: `Bearer ${authTokens.access}` }
+            }).then((res) => {
+                console.log(res.data)
+                window.location.href = '/user/edit-profile/'
+            });
+        } catch (error) {
+            console.log(error)
+        }
+
+    
+    }
+
+
+
+
   const handleClose = () => setOpen(false);
 
   const style = {
@@ -131,8 +174,8 @@ const handleOtp = ()=>{
       autoComplete="off"
     >
       {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
-      <TextField className='about-form-field' id="filled-basic" value={userData.first_name} placeholder="first name" variant="filled"  /> 
-      <TextField id="standard-basic" placeholder="last name" variant="filled" value={userData.last_name} />
+      <TextField  name="first_name" onChange={handleChange}  className='about-form-field' id="filled-basic" value={userData.first_name} placeholder="first name" variant="filled"  /> 
+      <TextField  name="last_name" onChange={handleChange}  id="standard-basic" placeholder="last name" variant="filled" value={userData.last_name} />
       
     </Box>
     <Box style={{display:"flex",justifyContent:"center"}}
@@ -144,8 +187,8 @@ const handleOtp = ()=>{
       autoComplete="off"
     >
       {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
-      <TextField className='about-form-field' id="filled-basic" value={user.username} placeholder="username" variant="filled" />
-      <TextField id="standard-basic" placeholder="email" value={user.email} variant="filled" />
+      <TextField name="username" onChange={handleChange} className='about-form-field' id="filled-basic" value={user.username} placeholder="username" variant="filled" />
+      <TextField name="email" onChange={handleChange} id="standard-basic" placeholder="email" value={user.email} variant="filled" />
       
     </Box>
     <Box style={{display:"flex",justifyContent:"center"}}
@@ -157,8 +200,8 @@ const handleOtp = ()=>{
       autoComplete="off"
     >
       {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
-      <TextField className='about-form-field' id="filled-basic" value={userData.phone} placeholder="phone" variant="filled" />
-      <TextField name="dob" type="date" className="login-text-field" style={{marginBottom:"20px"}} variant="filled" fullWidth value={userData.date_of_birth} />
+      <TextField name="phone" onChange={handleChange} className='about-form-field' id="filled-basic" value={userData.phone} placeholder="phone" variant="filled" />
+      <TextField name="date_of_birth" onChange={handleChange} type="date" className="login-text-field" style={{marginBottom:"20px"}} variant="filled" fullWidth value={userData.date_of_birth} />
       
     </Box>
   </Grid>
@@ -171,26 +214,33 @@ const handleOtp = ()=>{
 <Grid container  spacing={2}>
 <Grid item xs={2}></Grid>
   <Grid item xs={8}>
+           <Button
+              onClick={formSubmit}
+              className="signup-btn"
+              style={{
+                color: "#fff",
+                backgroundColor: "#28135D",
+                borderRadius: "45px",
+                padding: "8px 20px",
+              }}
+              variant="contained"
+             
+            >
+              <span> Update </span>
+            </Button>
+
     <h4  style={{marginLeft:"120px"}}>Vehicles</h4>
-
-    <ul>
-      <li>Milk</li>
-      <li>Cheese</li>
-      <li>Cheese</li>
-      <li>Cheese</li>
-    </ul>
-
-
 <Button onClick={() => navigate(`/user/add_vehicle`)} style = {{textDecoration:'None',color: "#28B0FC",marginLeft:"120px",marginBottom:"50px"}}>Add vehicle</Button>
 
     </Grid>
 <Grid item xs={2}></Grid>
+      
 
     </Grid>
-    <Button onClick={() => navigate(`/user/edit-profile`)} style = {{textDecoration:'None',color: "#28B0FC",marginLeft:"120px",marginBottom:"50px"}}> Edit Profile </Button>
+    
       </Container>
     </div>
   );
 }
 
-export default UserProfile;
+export default EditUserProfile;
