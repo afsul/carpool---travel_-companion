@@ -2,6 +2,9 @@
 
 from django.views.generic.list import ListView
 from requests import request
+from ride.models import Vehicle
+
+from ride.serializers import UserVehicleSerializer, VehicleSerializer
 from .serializers import MyTokenObtainPairSerializer, SignUpSerializer, UserSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import generics, status
@@ -51,20 +54,20 @@ class SignupView(generics.GenericAPIView):
             return Response(data=response, status=status.HTTP_201_CREATED)
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET','PUT'])
-@permission_classes([IsAuthenticated])
-def UserProfileInfo(request):
-    print(request.user,"This is request user....----------9")
-    if request.method == 'GET':
-        response = User.objects.get(id=request.user.id)
-        serializer_class = SignUpSerializer(response)
-        return Response(data=serializer_class.data, status=status.HTTP_201_CREATED)
-    if request.method == 'PUT':
-        response = User.objects.get(id=request.user.id)
-        serializer_class = SignUpSerializer(response)
-        if serializer_class.is_valid():
-            serializer_class.save()
-            return Response(data=serializer_class.data, status=status.HTTP_201_CREATED)
+# @api_view(['GET','PUT'])
+# @permission_classes([IsAuthenticated])
+# def UserProfileInfo(request):
+#     print(request.user,"This is request user....----------9")
+#     if request.method == 'GET':
+#         response = User.objects.get(id=request.user.id)
+#         serializer_class = SignUpSerializer(response)
+#         return Response(data=serializer_class.data, status=status.HTTP_201_CREATED)
+#     if request.method == 'PUT':
+#         response = User.objects.get(id=request.user.id)
+#         serializer_class = SignUpSerializer(response)
+#         if serializer_class.is_valid():
+#             serializer_class.save()
+#             return Response(data=serializer_class.data, status=status.HTTP_201_CREATED)
 
 
 class UserList(generics.ListCreateAPIView):
@@ -75,12 +78,9 @@ class UserList(generics.ListCreateAPIView):
 
 
 class UserProfileInfo(generics.RetrieveUpdateAPIView):
-    # queryset = User.objects.get(id=request.user.id)
+   
     print('this is user profile')
-    # serializer_class = UserSerializer
-    # permission_classes = [IsAuthenticated]
 
-    
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
@@ -172,3 +172,15 @@ def otp_send(request):
     if(otp_send_to_number(user.phone)):
         return Response(status=status.HTTP_201_CREATED)
 
+
+class UserVehicleList(generics.ListAPIView):
+    # queryset = Vehicle.objects.filter(user=request.user)
+    
+    serializer_class = UserVehicleSerializer
+    permission_classes = [IsAuthenticated]  
+
+    def get_queryset(self):       #these are the functions inside the generics ...we are manipuatin it 
+        user_id = self.kwargs['user_id']
+        print(user_id,"This is user id number")
+        # user = Vehicle.objects.get(pk = user_id)
+        return Vehicle.objects.filter(user=user_id)

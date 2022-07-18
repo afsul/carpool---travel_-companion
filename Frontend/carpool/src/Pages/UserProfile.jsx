@@ -19,23 +19,41 @@ function UserProfile() {
 
   const {user} = useContext(AuthContext)
 
+  const {authTokens} = useContext(AuthContext)
+
   const [open, setOpen] = React.useState(false);
   const [input, setInput] = React.useState("");
 
   const [userData, setUserData] = useState([]);
+  const [vehicle,setVehicle] = useState([])
 
   const user_id = decoded.user_id
+
   
 
   useEffect(()=>{
     document.title = 'User Profile'
      console.log('this is decoded',decoded.user_id)
-    axios.get('http://127.0.0.1:8000/auth/user_details/'+user_id)
+    axios.get('http://127.0.0.1:8000/auth/user_details/'+user_id,
+    {
+      headers: { Authorization: `Bearer ${authTokens.access}` },
+    })
     .then((response)=>{
       console.log('this is user data ',response.data)
       setUserData(response.data)
       console.log('array data of user ',userData)
     })
+
+    axios.get('http://127.0.0.1:8000/ride/vehicle_details/1',
+    {
+      headers: { Authorization: `Bearer ${authTokens.access}` },
+    })
+    .then((response)=>{
+      console.log(response.data,"vehicle data")
+      setVehicle(response.data)
+
+    })
+
     console.log('array data of user',userData)
   },[])
         
@@ -174,10 +192,12 @@ const handleOtp = ()=>{
     <h4  style={{marginLeft:"120px"}}>Vehicles</h4>
 
     <ul>
-      <li>Milk</li>
-      <li>Cheese</li>
-      <li>Cheese</li>
-      <li>Cheese</li>
+    <li>{vehicle.manufacture}</li> 
+    <li>{vehicle.model}</li>
+    <li>{vehicle.vehicle_number}</li>
+    <li>{vehicle.colour}</li>
+
+     
     </ul>
 
 

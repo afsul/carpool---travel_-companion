@@ -12,6 +12,7 @@ urlpatterns = [
     path("signup/",views.SignupView.as_view(),name="signup"),
     path('userslist/',views.UserList.as_view()),
     path("user_details/<int:pk>/",views.UserProfileInfo.as_view(),name="user_details"),
+    path("user_vehicles/<int:user_id>/",views.UserVehicleList.as_view()),
     path("login/", views.LoginView.as_view(), name="login"),
     path('jwt/create/', views.Mytoken_view.as_view(), name='token_obtain_pair'),
     path('jwt/refresh/', TokenRefreshView.as_view(), name='token_refresh'),

@@ -18,6 +18,7 @@ class UserInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields='__all__'
+        depth = 2
     
 class GetRiderInfo(serializers.ModelSerializer):
     user = UserInfoSerializer()
@@ -34,6 +35,15 @@ class RideRequestSerializers(serializers.ModelSerializer):
 
 
 class VehicleSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Vehicle
         fields = '__all__'
+
+
+class UserVehicleSerializer(serializers.ModelSerializer):
+   
+    class Meta:
+        model = Vehicle
+        fields = '__all__'
+        depth  = 1

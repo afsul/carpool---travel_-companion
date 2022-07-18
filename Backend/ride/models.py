@@ -46,7 +46,7 @@ class Vehicle(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     manufacture = models.CharField(max_length=50)
     model = models.CharField(max_length=50)
-    vehicle_number = models.PositiveBigIntegerField()
+    vehicle_number = models.CharField(max_length=50)
     colour = models.CharField(max_length=50)
 
     def __str__(self):
