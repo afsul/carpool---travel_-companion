@@ -14,10 +14,11 @@ export const AuthProvider = ({children}) => {
     const [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
     const [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
 
-
+    // const [decoded,setDecoded] = useState(()=> localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
+    const [decoded,setDecoded] = useState(()=> localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
      
-      var tokenid = localStorage.getItem('authTokens')
-      var decoded = jwt_decode(tokenid);
+    //   var tokenid = localStorage.getItem('authTokens')
+    //   var decoded = jwt_decode(tokenid);
 
 
     const Login = async (data) =>{  
@@ -39,6 +40,7 @@ export const AuthProvider = ({children}) => {
             setUser(jwt_decode(response.data.access))
             localStorage.setItem('authTokens',JSON.stringify(response.data))
             console.log('decoded token',decoded)
+            setDecoded(jwt_decode(localStorage.getItem('authTokens')))
             navigate("/")
         })
     

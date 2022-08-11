@@ -78,7 +78,7 @@ SIMPLE_JWT = {
 AUTH_USER_MODEL = "accounts.User"
 
 MIDDLEWARE = [
-     "corsheaders.middleware.CorsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -128,7 +128,7 @@ DATABASES = {
        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'carpool',  
         'USER': 'afsul',  
-        'PASSWORD': '1234567890',  
+        'PASSWORD': 'ak778899',  
         'HOST': 'localhost',  
         'PORT': '5432',  
    }

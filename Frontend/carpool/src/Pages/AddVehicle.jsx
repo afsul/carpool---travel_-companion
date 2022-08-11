@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import axios from '../api/axios';
 import { AuthContext } from '../context/UserContext';
 import { useEffect } from 'react';
+import jwt_decode from "jwt-decode";
 
 
 function AddVehicle() {
@@ -15,7 +16,12 @@ function AddVehicle() {
   const {authTokens} = useContext(AuthContext)
   const {decoded} = useContext(AuthContext)
 
+  
+
   const user_id = decoded.user_id
+
+  
+  
   const handleChange = (event) =>{
     setVehicle({
       ...vehicle,
@@ -26,6 +32,7 @@ function AddVehicle() {
 const _formData = null
 const formSubmit =  ()=>{
    
+   console.log(user_id,"This is uid==========>")
    const _formData = new FormData();
   _formData.append('user',user_id);
   _formData.append('manufacture', vehicle.manufacture);
@@ -50,10 +57,17 @@ const formSubmit =  ()=>{
 
 }
 
+
 useEffect (()=>{
   document.title = "vehicle details"
   
+  
+  const user_id = decoded.user_id
+  console.log('this is user id',user_id)
+  
+  
 })
+
 
   return (
     <div>

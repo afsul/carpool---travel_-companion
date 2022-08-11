@@ -123,30 +123,24 @@ def accept_ride_request(request, requestID):
     ride_request = Ride_Request.objects.get(id=requestID)
     print(ride_request,'===================////////')   
     print(request.user,'this is request user')
-    if ride_request.to_user == request.user:
-        print("Entered if condition 0000000000000")
-        # ride_request.to_user.add(ride_request.from_user)
-        # ride_request.from_user.add(ride_request.to_user)
-        
-        copassengers = Copassengers.objects.create(passenger_name = ride_request.from_user, ride = ride_request.ride_id )
-        print(copassengers,"Copassengers")
+    # if ride_request.to_user == request.user:
+    print("Entered if condition 0000000000000")
+    copassengers = Copassengers.objects.create(passenger_name = ride_request.from_user, ride = ride_request.ride_id )
+    print(copassengers,"Copassengers")
+    
+    seat_count = Ride.objects.get(id = ride_request.ride_id.id )
+    print(seat_count,"This is seat count------------->")
+    seat_count.seat =  seat_count.seat -1
+    seat_count.save()
 
-        seat_count = Ride.objects.get(id = ride_request.ride_id.id )
-        print(seat_count,"This is seat count------------->")
-        seat_count.seat =  seat_count.seat -1
-        seat_count.save()
+    
+    ride_request.delete()   
+    
+    print("request accepted===============>")
 
+    return Response(status=status.HTTP_201_CREATED)
         
-        ride_request.delete()   
-        
-        print("request accepted===============>")
-
-        return Response(status=status.HTTP_201_CREATED)
-        
-    else:
-        ride_request.delete() 
-        print("Request Rejected")
-        return Response(status=status.HTTP_400_BAD_REQUEST)
+    
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])

@@ -62,7 +62,7 @@ function EditUserProfile() {
 
    const _formData = null
     const formSubmit = () => {                     //************** the key point to note here is if we don't give the name is append as exactly the same name as per seializer of backend then the response will be having a null values so be careful
-        const _formData = new FormData();
+      const _formData = new FormData();
         _formData.append('first_name', userData.first_name);
         _formData.append('last_name', userData.last_name);
         _formData.append('username', userData.username);
@@ -187,8 +187,8 @@ const handleOtp = ()=>{
       autoComplete="off"
     >
       {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
-      <TextField name="username" onChange={handleChange} className='about-form-field' id="filled-basic" value={user.username} placeholder="username" variant="filled" />
-      <TextField name="email" onChange={handleChange} id="standard-basic" placeholder="email" value={user.email} variant="filled" />
+      <TextField name="username" onChange={handleChange} className='about-form-field' id="filled-basic" value={userData.username} placeholder="username" variant="filled" />
+      <TextField name="email" onChange={handleChange} id="standard-basic" placeholder="email" value={userData.email} variant="filled" />
       
     </Box>
     <Box style={{display:"flex",justifyContent:"center"}}
@@ -222,6 +222,9 @@ const handleOtp = ()=>{
                 backgroundColor: "#28135D",
                 borderRadius: "45px",
                 padding: "8px 20px",
+                justifyContent: "center",
+                
+
               }}
               variant="contained"
              
@@ -229,8 +232,7 @@ const handleOtp = ()=>{
               <span> Update </span>
             </Button>
 
-    <h4  style={{marginLeft:"120px"}}>Vehicles</h4>
-<Button onClick={() => navigate(`/user/add_vehicle`)} style = {{textDecoration:'None',color: "#28B0FC",marginLeft:"120px",marginBottom:"50px"}}>Add vehicle</Button>
+    
 
     </Grid>
 <Grid item xs={2}></Grid>

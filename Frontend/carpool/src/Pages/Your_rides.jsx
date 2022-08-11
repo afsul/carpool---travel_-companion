@@ -16,6 +16,7 @@ import axios from "../api/axios";
 // import axios from 'axios';
 import { AuthContext } from "../context/UserContext";
 import { useContext } from 'react';
+import Navbar from '../Components/Navbar';
 
 function Your_rides() {
     const [ride_data,setRidedata] = useState([])
@@ -58,15 +59,9 @@ useEffect(()=>{
 
 
    const acceptRequest = (id) => {                // this accept request is having some credential error so changed it into previous api/axios
-    // axios.post(`http://localhost:8000/ride/accept_request/${id}`,
-    // {
-    //   headers: { Authorization: `Bearer ${authTokens.access}` },
-    // })
+   
     axios.post('http://localhost:8000/ride/accept_request/'+id,
-    {
-     
-      // headers: { Authorization: `Bearer ${authTokens.access}` },
-    })
+    )
     .then((response)=>{
 
         alert("request accepted")
@@ -76,9 +71,7 @@ useEffect(()=>{
 
    const rejectRequest = (id) => {
     axios.post('http://localhost:8000/ride/reject_ride_request/'+id,
-    {
-      // headers: { Authorization: `Bearer ${authTokens.access}` },
-    })
+    )
     .then((response)=>{
         alert("request rejected")
         window.location.reload();    // need to change
@@ -88,6 +81,7 @@ useEffect(()=>{
 
   return (
     <div>
+       <Navbar/>
         <Container className='ride-reqeust'>
         <h3 style={{textAlign:"center"}}>Request for rides</h3>
         <Grid container className='request-ride-single' spacing={2}>
