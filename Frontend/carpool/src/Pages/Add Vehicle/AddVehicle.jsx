@@ -1,21 +1,25 @@
 import React, { useContext, useState } from 'react'
 import { Container } from "@mui/system";
-import Navbar from '../Components/Navbar';
+import Navbar from '../../Components/Navbar';
 import Grid from '@mui/material/Grid';
 import Box from "@mui/material/Box";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import axios from '../api/axios';
-import { AuthContext } from '../context/UserContext';
+import axios from '../../api/axios';
+import { AuthContext } from '../../context/UserContext';
 import { useEffect } from 'react';
 import jwt_decode from "jwt-decode";
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 function AddVehicle() {
   const [vehicle, setVehicle] = useState([])
   const {authTokens} = useContext(AuthContext)
   const {decoded} = useContext(AuthContext)
-
+  const navigate = useNavigate()
+  
   
 
   const user_id = decoded.user_id
@@ -48,6 +52,7 @@ const formSubmit =  ()=>{
       headers: { Authorization: `Bearer ${authTokens.access}` }
     }).then((res)=>{
       console.log(res.data)
+      navigate("/user/profile/")
     });
   } catch (error){
     console.log(error)

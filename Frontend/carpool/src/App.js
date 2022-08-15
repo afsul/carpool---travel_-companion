@@ -1,20 +1,22 @@
 import {BrowserRouter as Router,Routes,Route, BrowserRouter}from 'react-router-dom'
-import Home from "./Pages/Home";
-import './App.css';
 import React from 'react' 
-import { Login } from './Pages/Login';
-import Signup from './Pages/Signup';
-import Payment from './Pages/Payment';
-import UserProfile from './Pages/UserProfile';
-import OtpVerify from './Pages/OtpVerify';
-import Ride_schedule from './Pages/Ride_schedule';
-import Ride_list from './Pages/Ride_list';
-import RideSingle from './Pages/RideSingle';
-import AddVehicle from './Pages/AddVehicle';
-import Your_rides from './Pages/Your_rides';
 import { AuthProvider } from './context/UserContext';
-import AdminLogin from './Pages/AdminLogin';
-import EditUserProfile from './Pages/EditUserProfile';
+import './App.css';
+import Home from './Pages/Home/Home'
+import { Login } from './Pages/Login/Login';
+import Signup from './Pages/Sign Up/Signup';
+import Payment from './Pages/Payment/Payment';
+import UserProfile from './Pages/User Profile/UserProfile'
+import EditUserProfile from'./Pages/User Profile/EditUserProfile'
+import OtpVerify from './Pages/Otp/OtpVerify';
+import Ride_schedule from './Pages/Ride Schedule/Ride_schedule'
+import Ride_list from './Pages/Ride list/Ride_list'
+import RideSingle from './Pages/Ride Details/RideSingle'
+import AddVehicle from './Pages/Add Vehicle/AddVehicle'
+import Your_rides from './Pages/Manage Rides/Your_rides'
+import useForm from './Hooks/useForm';
+
+
 
 
 function App() {
@@ -37,7 +39,7 @@ function App() {
         <Route path='/user/single_ride' element={<RideSingle/>}/>
         <Route path='/user/add_vehicle' element={<AddVehicle/>}/>
         <Route path='/user/Your_rides' element={<Your_rides/>}/>     
-        <Route path='/admin/AdminLogin' element={<AdminLogin/>}/>     
+        {/* <Route path='/admin/AdminLogin' element={<AdminLogin/>}/>      */}
 
            
       </Routes>

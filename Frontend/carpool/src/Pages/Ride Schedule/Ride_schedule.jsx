@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from "../Components/Navbar";
+import Navbar from "../../Components/Navbar";
 import { Container, Row, Col } from "react-grid-system";
-import Schedule_form from "../Components/Schedule_form";
+import Schedule_form from "../../Components/Schedule_form";
 import Grid from '@mui/material/Grid';
 import { Box } from "@mui/system";
 

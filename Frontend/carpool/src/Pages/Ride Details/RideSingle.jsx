@@ -1,7 +1,7 @@
 import { Container } from '@mui/system';
 import React from 'react'
 import { useLocation } from "react-router-dom";
-import Navbar from '../Components/Navbar';
+import Navbar from '../../Components/Navbar';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
@@ -10,9 +10,9 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import { Box } from "@mui/material";
 import Button from '@mui/material/Button';
-import axios from "../api/axios";
+import axios from "../../api/axios";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/UserContext";
+import { AuthContext } from "../../context/UserContext";
 import { useContext } from 'react';
 
 

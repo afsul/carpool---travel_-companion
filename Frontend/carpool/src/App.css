@@ -1,16 +1,28 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * body{    
     margin: 0 !important;
     padding: 0 !important;
 }
-.img-wrapper{
-    background-image:url(/home/afsul/Documents/carpool_second_project/Frontend/carpool/public/website_images/banner.jpg);
-    background-position: right;
-    background-repeat: no-repeat;
-   width: 100%;
-   height: auto;
-}
+
 .ride_list_card{
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);
 border-radius: 37px;
@@ -41,20 +53,7 @@ margin-bottom: 20px;
 }
 
 
-.form_bg {
-    margin-top: 100px;
-    background-color: #E6E6E6;
-    width: 100%;
-    height: auto;
-    padding-top: 40px;
-    padding-left: 40px;
-    padding-right: 40px;
-    margin-bottom: 100px;
-    padding-bottom: 40px;
-    border-radius: 15px;
-    
 
-}
 
 .single-ride{
     margin-top: 100px;
@@ -114,167 +113,15 @@ padding: 5px;
     color:#f80015 ;
 }
 
-.form_bg h1{
-font-size: 28px;
-color:#150638 ;
-font-family: 'Poppins', sans-serif; 
-margin-top: 0;
-
-}
-.form_bg h3{
-    font-size: 20px;
-    color:#150638 ;
-    font-family: 'Poppins', sans-serif; 
-    font-weight: 600;
-    
-    }
-
-.btn-schedule-form{
-    margin: auto;
-    background-color: #f80015;
-    color: #fff;
-}
-
-.three-content {
-    font-family: 'Poppins', sans-serif; 
-    background-color: #F5F5F5;
-    color: #28135D;
-    
-}
-.three-content img{
-    height: 43px;
-    width: 43px;
- 
-}
-.three-content h5{
-    color: #28135D;
-    font-weight:600;
-    font-size: 21px;
-    
-}
-
-.three-content p{
-    color: #28135D;
-    font-weight:500;
-    font-size: 15px;
-}
 
 
-/* your-safety */
-
-.your-safety {
-    font-family: 'Poppins', sans-serif;
-    padding-bottom: 50px;
-}
-.your-safety img{
-    width: 100%;
-    height: auto;
-}
-
-.your-safety h4{
-    color: #28135D;
-    font-weight:600;
-    font-size: 40px;
-    padding: 0;
-    margin-bottom: 0;
-    
-}
-
-.your-safety  p{
-    color: #28135D;
-    font-weight:500;
-    font-size: 15px;
-}
 
 
-/* faq */
-.faq{
-    color: #28135D;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    font-weight:600;
-}
-
-/* footer */
-.footer{
-    background-color: #211D31;
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    padding-top: 70px;
-    
-
-}
-
-.footer h4{
-    font-weight: 600;
-
-}
 
 
-.footer p{
-    font-size: 14px;
-}
-
-.footer h6{
-    font-size: 13px;
-    text-align: center;
-    font-weight: 400;
-    margin-bottom: 0;
-    padding-bottom: 15px;
-}
-
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 100px;
-    background: orange;
-    color: white;
-    cursor: pointer;
-    border-radius: 100px;
-    border: none;
-    box-shadow: 0 5px 10px #ccc;
-  }
-  
-  .back-to-top:hover {
-    background: red;
-  }
 
 
-.login {
-    padding-top: 100px;
-}
 
-.login h3{
-    font-size: 35px;
-    text-align: center;
-    font-weight: 600;
-    color: #28135D;
-    font-family: 'Poppins', sans-serif;
-}
-
-.login-text-field{
-    border-radius: 27px;
-    border: none;
-}
-
-.signup{
-    color: #28135D;
-    font-family: 'Poppins', sans-serif;padding-top: 100px;
-    
-}
-.signup h3{
-    font-size: 35px;
-    text-align: center;
-}
-.signup span{
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    
-}
-.verify_btn{
-    margin: auto;
-}
 
 .add-vehicle h3{
     font-family: 'Poppins', sans-serif;
@@ -323,3 +170,4 @@ color: #28135D;
 .request-ride-single{
     /* margin-left: 50px; */
 }
+

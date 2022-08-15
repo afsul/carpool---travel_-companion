@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../Components/Navbar";
+import Navbar from "../../Components/Navbar";
 import { Container, Row, Col } from "react-grid-system";
-import Form from "../Components/Form";
+import Form from "../../Components/Form/Form";
 import Grid from '@mui/material/Grid';
 import { Box } from "@mui/system";
 import Card from '@mui/material/Card';
@@ -15,9 +15,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import Backtotop from "../Components/Backtotop";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+import './Home.css'
 
 function Home() {
   var token 
@@ -34,20 +35,19 @@ else{
 
 }, [])
 
-// useEffect(()=>{
-//   document.title = 'Home'
-//   console.log('vikram',token)
-//   token.map( customer => {
-//     console.log('hti',customer);
-    
-// })
+const scrollUp = () => {
+  const doc = document.documentElement;
+  const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
 
-// }) 
-
-
+  if (top > 0){
+    window.scrollTo(0, top - 15);
+    setTimeout(scrollUp, 1);
+  }
+};
   return (
     <div>
       <Navbar/>
+      {/* <ScrollTop/> */}
     <Container fluid className="img-wrapper container-fluid">
       <Container>
     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -56,9 +56,9 @@ else{
    <Form/>
    </Box>
   </Grid>
-  <Grid item xs={6}>
+  {/* <Grid item xs={6}>
     
-  </Grid>
+  </Grid> */}
   </Grid>
   </Container>
     </Container>
@@ -251,6 +251,9 @@ else{
       </Accordion>
       <Button style={{backgroundColor: "#28135D", borderRadius:"45px",color:"#fff",padding:"10px 15px",marginBottom:"80px",marginTop:"50px",fontSize:"12px",marginLeft:"auto",marginRight:"auto"}} >Read our help center</Button>
 </Container>
+<button onClick={scrollUp}>scroll to top</button>
+
+
 {/* Footer */}
 <Container fluid className="footer" >
   <Container  style={{borderBottom:"1px #fff solid",paddingBottom:"150px"}}>
@@ -279,6 +282,7 @@ else{
   </Container>
 <h6>Copyright © carpool by Emegix</h6>
 </Container>
+
     </div>
   );
 }

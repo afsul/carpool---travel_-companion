@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../Components/Navbar";
+import Navbar from "../../Components/Navbar";
 import { Container } from "@mui/system";
 import Grid from "@mui/material/Grid";
 import { useLocation,   useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ import Avatar from '@mui/material/Avatar';
 import CircularProgress from '@mui/material/CircularProgress';
 // import axios from "../api/axios";
 import axios from 'axios';
-import { AuthContext } from "../context/UserContext";
+import { AuthContext } from "../../context/UserContext";
 import { useContext } from "react";
 
 

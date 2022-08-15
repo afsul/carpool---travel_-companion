@@ -12,11 +12,11 @@ import Avatar from '@mui/material/Avatar';
 import Grid from "@mui/material/Grid";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import axios from "../api/axios";
+import axios from "../../api/axios";
 // import axios from 'axios';
-import { AuthContext } from "../context/UserContext";
+import { AuthContext } from "../../context/UserContext";
 import { useContext } from 'react';
-import Navbar from '../Components/Navbar';
+import Navbar from '../../Components/Navbar';
 
 function Your_rides() {
     const [ride_data,setRidedata] = useState([])
@@ -83,7 +83,7 @@ useEffect(()=>{
     <div>
        <Navbar/>
         <Container className='ride-reqeust'>
-        <h3 style={{textAlign:"center"}}>Request for rides</h3>
+        <h3 style={{textAlign:"center",marginTop:"100px"}}>Request for rides</h3>
         <Grid container className='request-ride-single' spacing={2}>
         <Grid item xs={2}></Grid>
         <Grid item xs={8}>

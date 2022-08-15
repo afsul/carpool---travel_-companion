@@ -7,6 +7,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+
 // import axios from "../api/axios";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
@@ -90,7 +91,7 @@ function Schedule_form() {
       <h1>Schedule a ride</h1>
       {/* Source destination  */}
       <form onSubmit={handleSubmit}>
-        <Grid container>
+        <Grid container spacing={3}>
           <Grid item xs={6}>
             <GooglePlacesAutocomplete
               apiKey="AIzaSyBrjX6c8Poj3RpXhJLVR2CJ4LEB_G8Kanw"
@@ -124,6 +125,7 @@ function Schedule_form() {
               onChange={(e) => setDetails({ ...details, seat: e.target.value })}
               sx={{ width: 250 }}
               style={{ marginTop: "30px", background: "white" }}
+              fullWidth
             />
           </Grid>
           <Grid item xs>
@@ -229,6 +231,7 @@ function Schedule_form() {
           </Grid>
         </Grid>
       </form>
+   
     </div>
   );
 }

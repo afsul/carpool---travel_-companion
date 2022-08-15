@@ -4,11 +4,11 @@ import Grid from "@mui/material/Grid";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-// import axios from "../api/axios";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/UserContext';
+import { AuthContext } from '../../context/UserContext';
 import { useContext } from 'react';
+import './Form.css';
 
 
 
@@ -47,10 +47,11 @@ function Form() {
     <div>
       <h1>Your pick of rides at low prices</h1>
       <form onSubmit={handleSubmit}>
-        <Grid container>
+        <Grid container spacing={3}>
           <Grid item xs={6}>
             <GooglePlacesAutocomplete
               apiKey="AIzaSyBrjX6c8Poj3RpXhJLVR2CJ4LEB_G8Kanw"
+              label="Seat"
               selectProps={{
                 origin,
                 onChange: setOrigin,
@@ -61,6 +62,7 @@ function Form() {
           <Grid item xs={6}>
             <GooglePlacesAutocomplete
               apiKey="AIzaSyBrjX6c8Poj3RpXhJLVR2CJ4LEB_G8Kanw"
+              
               selectProps={{
                 destination,
                 onChange: setDestination,
@@ -69,15 +71,17 @@ function Form() {
             {/* <Place/> */}
           </Grid>
         </Grid>
- {/* time date */}
+{/* time date */}
 
  <Grid container spacing={3}>
           <Grid item xs={6}>
           <TextField
+          
               id="outlined-number"
               label="Seat"
               type="number"
               name="seat"
+              
               onChange={(e) => setDetails({ ...details, seat: e.target.value })}
               sx={{ width: 250 }}
               style={{ marginTop: "30px", background: "white" }}
@@ -85,6 +89,7 @@ function Form() {
           </Grid>
           <Grid item xs={6}>
             <TextField
+            fullWidth
               id="date"
               label="date"
               type="date"
@@ -112,7 +117,7 @@ function Form() {
                 fontWeight: "600",
               }}
             >
-              Search Car
+              Search Ride
             </Button>
           </Grid>
         </Grid>

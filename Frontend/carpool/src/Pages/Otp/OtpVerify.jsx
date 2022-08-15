@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-import "../App.css";
+import "../../App.css";
 import { Container } from "@mui/system";
-import UserProfile from './UserProfile';
+import UserProfile from '../User Profile/UserProfile';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 
@@ -19,7 +19,7 @@ function OtpVerify() {
   <Grid item xs={4}>
   </Grid>
   <Grid  item xs={4}>
-  <UserProfile className='verify_btn' /><br/>
+  <UserProfile/><br/>
   <Button onClick={()=> navigate(`/user/payment`)} variant="text">skip</Button>
 
   </Grid>

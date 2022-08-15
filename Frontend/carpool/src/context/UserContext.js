@@ -43,7 +43,7 @@ export const AuthProvider = ({children}) => {
             setDecoded(jwt_decode(localStorage.getItem('authTokens')))
             navigate("/")
         })
-    
+        
         console.log('this is token in login react',token)
        
         }
@@ -54,8 +54,6 @@ export const AuthProvider = ({children}) => {
             user,
             authTokens,
             decoded
-
-            
         }
 
 

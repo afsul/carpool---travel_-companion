@@ -1,11 +1,11 @@
-import { Container } from '@mui/system'
+import {  Container } from '@mui/system'
 import React, { useContext, useEffect, useState } from 'react'
-import Navbar from '../Components/Navbar'
+import Navbar from '../../Components/Navbar'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import axios from '../api/axios'
+import axios from '../../api/axios'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
@@ -14,12 +14,22 @@ import { useNavigate, Link } from "react-router-dom";
 
 
 
-import '../App.css';
-import { AuthContext } from '../context/UserContext';
+
+
+
+
+
+
+import '/home/afsul/Documents/carpool_second_project/Frontend/carpool/src/Pages/Login/Login.css';
+import { AuthContext } from '../../context/UserContext';
+
+
 
 export  const Login = () => {
+
+
     const validationSchema = Yup.object().shape({
-        email: Yup.string().required("email is required"),
+        email: Yup.string().email('Enter correct email').required("email is required"),
         password: Yup.string()
              .required("password is required")
              .min(4, "password must be at least 6 characters")
@@ -72,32 +82,50 @@ export  const Login = () => {
 
     }) 
 
+    
+
+   
+
   return (
     <div>
         <Navbar/>
         <Container className="login">
-            <h3>What's your email and password?</h3>
-            
        
-        <Box sx={{ flexGrow: 1 }}>
+          
+       
+        <Box    sx={{ flexGrow: 1 }}>
+       
       <Grid container spacing={3}>
         <Grid item xs>
           
         </Grid>
-        <Grid item xs={6}>
-        <TextField name="email" className="login-text-field" style={{marginBottom:"20px"}} label="email" variant="filled" fullWidth {...register("email")}
-                                                  error={errors.username ? true : false} />
-                                                   <Typography variant="inherit" color="textSecondary">
+        <Grid className='login-container' item xs={6}>
+        <div className='login-header'> 
+          <h3>Sign In</h3>
+          
+            <img src='/login.png'/>
+          </div>
+       
+                                                    <Typography variant="inherit" color="textSecondary" style={{marginBottom:"5px"}}>
                                                   {errors.email?.message}
                                              </Typography>
-        <TextField name="password" className='login-text-field'  label="password" variant="filled" fullWidth {...register("password")}
-                                                  error={errors.password ? true : false} />
-          <Typography variant="inherit" color="textSecondary">
+                                                   <TextField   name="email" style={{marginBottom:"20px" }} className="login-text-field " label="email"   variant="outlined" fullWidth {...register("email")}
+                                                  error={errors.username ? true : false}  />
+
+                                                 
+       
+                                                  <Typography variant="inherit" color="textSecondary" style={{marginBottom:"5px"}}>
                                                   {errors.password?.message}
                                              </Typography>
+                                                   <TextField name="password"  className='login-text-field' type='password'  label="password" variant="outlined" fullWidth {...register("password")}
+                                                  error={errors.password ? true : false} />
+          
         
-        <Button onClick={handleSubmit(onSubmit)} style={{backgroundColor: "#28135D", borderRadius:"45px",color:"#fff",padding:"8px 20px",marginTop:"50px",fontSize:"16px"}} >Login</Button>
-        <br/><Button style={{color:"#28B0FC", borderRadius:"45px",padding:"8px 20px"}} onClick={()=>navigate(`/user/signup`)} color="inherit">Signup</Button>
+        <Button onClick={handleSubmit(onSubmit)} style={{backgroundColor: "#28135D", borderRadius:"45px",color:"#fff",padding:"8px 20px",marginTop:"50px",fontSize:"16px",}} >Login</Button>
+        <div className='sighn-btn'>
+        <Button  style={{marginBottom:"35px"}} onClick={()=>navigate(`/user/signup`)} color="inherit" >Signup</Button>
+        </div>
+      
 
         </Grid>
         <Grid item xs>

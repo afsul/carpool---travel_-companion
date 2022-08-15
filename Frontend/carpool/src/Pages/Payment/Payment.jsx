@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../Components/Navbar";
+import Navbar from "../../Components/Navbar";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { Container } from "@mui/system";
 import Grid from '@mui/material/Grid';
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
-import axios from "../api/axios";
-import "../App.css";
+import axios from "../../api/axios";
+import "../../App.css";
 
 function Payment() {
     const price = 100;

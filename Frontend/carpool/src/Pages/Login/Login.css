@@ -1,0 +1,59 @@
+.login {
+    padding-top: 100px;
+}
+
+
+.login h3{
+    font-size: 35px;
+   justify-content: center;
+ margin-left: -25px;
+    font-weight: 600;
+    color: #28135D;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom:0 ;
+}
+
+.login-text-field{
+    border-radius: 27px;
+    border: none;
+    
+}
+
+
+
+
+
+.login-container{
+    background-color: #f5f5f5;
+border-radius: 18px;
+flex-basis: 45%;
+margin-top: 50px !important;
+padding: 30px;
+}
+
+
+
+.sighn-btn{
+    right: 5px;
+    color:#28B0FC;
+  
+  
+    
+}
+
+.sighn-btn  button{
+    border-radius:45px;
+   float: right;
+   margin-top: -35px
+}
+
+.css-adfmws-MuiTypography-root{
+    color: red;
+}
+
+.login-header{
+    padding-left: 45%;
+    margin-bottom: 50px;   
+}
+
+
